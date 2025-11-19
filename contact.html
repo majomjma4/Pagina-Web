@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contacto</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body class="parallax">
+
+<header class="site-header">
+  <div class="container topbar">
+    <div class="logo-box">
+      <div class="logo-round">
+        <img src="img/icono.jpg" alt="Logo" />
+      </div>
+      <div class="logo-text">
+        <h1>Pirotecnia María José</h1>
+        <p class="slogan">¡Ilumina tus fiestas con la magia del fuego y el color!</p>
+      </div>
+    </div>
+
+    <nav class="main-nav">
+      <a href="index.html">Inicio</a>
+      <a href="about.html">Sobre Nosotros</a>
+      <a href="services.html">Servicios</a>
+      <a href="gallery.html">Galería</a>
+      <a href="contact.html">Contacto</a>
+    </nav>
+
+    <button class="hamburger">☰</button>
+  </div>
+</header>
+
+<main class="container">
+
+  <h2 class="section-title">Contáctanos</h2>
+
+  <div class="card cta-card">
+    <form id= "contact-form" action="">
+     <input type="text" placeholder="Nombre completo" required minlength="3">
+      <input type="tel" placeholder="Teléfono" required pattern="[0-9]{7,15}" title="Ingresa un número válido">
+      <textarea required placeholder="Mensaje" style="width:100%;height:120px;margin-top:10px;border-radius:8px;background:transparent;color:white;border:1px solid rgba(255,255,255,0.05);padding:10px;"></textarea>
+
+
+      <br><br>
+      <button class="btn" type="submit">Enviar</button>
+    </form>
+  </div>
+
+  <br>
+
+  <div class="map-container card map-card">
+  <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d383.17174794510976!2d-79.02644255169629!3d-1.6859568029896772!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x91d3227db5c9ebc7%3A0x5c2dabd35b1888cf!2s8X7F%2BMCJ%2C%20San%20Jos%C3%A9%20de%20Chimbo!5e1!3m2!1ses!2sec!4v1763489334855!5m2!1ses!2sec"
+      width="600"
+      height="450" 
+      style="border:0;"
+      allowfullscreen="" 
+      loading="lazy" 
+      referrerpolicy="no-referrer-when-downgrade">
+  </iframe>
+</div>
+
+  
+</main>
+
+<footer class="site-footer">
+  <div class="container footer-grid">
+    
+    <div>
+      <strong>Pirotecnia María José</strong>
+      <p>© <span id="year"></span> • Todos los derechos</p>
+    </div>
+    
+    <div>
+      <p>Tel: <a href="tel:+593988104492">+593 9 8810 4492</a></p>
+      <p>Email: <a href="mailto:cristinaabril03@gmail.com">cristinaabril03@gmail.com</a></p>
+      <p>Dirección: 
+        <a href="https://goo.gl/maps/2Skrg4w4y4D69SPJ6" target="_blank">
+          San José de Chimbo, Bolívar, Ecuador
+        </a>
+      </p>
+    </div>
+
+  </div>
+</footer>
+
+<script src="app.js"></script>
+
+<script>
+  const form = document.getElementById('contact-form');
+
+  form.addEventListener('submit', (e) => {
+    e.preventDefault(); // evita recargar la página
+
+    if (form.checkValidity()) {
+      alert("¡Mensaje enviado con éxito! ⭐");
+      form.reset(); // limpia el formulario
+    } else {
+      alert("Revisa los datos, porfa. Algo falta o está mal 😅");
+    }
+  });
+</script>
+
+</body>
+</html>

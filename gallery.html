@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Galería</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body class="parallax">
+
+<header class="site-header">
+  <div class="container topbar">
+    <div class="logo-box">
+      <div class="logo-round">
+        <img src="img/icono.jpg" alt="Logo" />
+      </div>
+      <div class="logo-text">
+        <h1>Pirotecnia María José</h1>
+        <p class="slogan">¡Ilumina tus fiestas con la magia del fuego y el color!</p>
+      </div>
+    </div>
+
+    <nav class="main-nav">
+      <a href="index.html">Inicio</a>
+      <a href="about.html">Sobre Nosotros</a>
+      <a href="services.html">Servicios</a>
+      <a href="gallery.html">Galería</a>
+      <a href="contact.html">Contacto</a>
+    </nav>
+
+    <button class="hamburger">☰</button>
+  </div>
+</header>
+
+<main class="container">
+
+  <h2 class="section-title">Galería</h2>
+
+<!-- Filtros -->
+<div class="gallery-buttons-box">
+  <div class="gallery-filters">
+  <button class="active" data-filter="all">Todos</button>
+  <button data-filter="foto">Imágenes</button>
+  <button data-filter="video">Videos</button>
+  <button data-filter="gif">GIFs</button>
+
+</div>
+
+</div>
+
+
+<!-- Contenedor -->
+<div class="gallery-grid">
+
+  <!-- ======= VIDEOS (5) ======= -->
+  <div class="thumb card" data-type="video">
+    <video src="img/castillo1.mp4" class="thumb-video" muted></video>
+  </div>
+
+  <div class="thumb card" data-type="video">
+    <video src="img/castillo2.mp4" class="thumb-video" muted></video>
+  </div>
+
+  <div class="thumb card" data-type="video">
+    <video src="img/castillo3.mp4" class="thumb-video" muted></video>
+  </div>
+
+  <div class="thumb card" data-type="video">
+    <video src="img/castillo4.mp4" class="thumb-video" muted></video>
+  </div>
+
+  <div class="thumb card" data-type="video">
+    <video src="img/castillo5.mp4" class="thumb-video" muted></video>
+  </div>
+
+
+  <!-- ======= GIFS (5) ======= -->
+  <div class="thumb card" data-type="gif">
+    <img src="img/gif1.gif" alt="">
+  </div>
+
+  <div class="thumb card" data-type="gif">
+    <img src="img/gif2.gif" alt="">
+  </div>
+
+  <div class="thumb card" data-type="gif">
+    <img src="img/gif3.gif" alt="">
+  </div>
+
+  <div class="thumb card" data-type="gif">
+    <img src="img/gif4.gif" alt="">
+  </div>
+
+  <div class="thumb card" data-type="gif">
+    <img src="img/gif5.gif" alt="">
+  </div>
+
+
+  <!-- ======= FOTOS (5) ======= -->
+  <div class="thumb card" data-type="foto">
+    <img src="img/CASTILLO.webp" alt="">
+  </div>
+
+  <div class="thumb card" data-type="foto">
+    <img src="img/CASTILLO2.webp" alt="">
+  </div>
+
+  <div class="thumb card" data-type="foto">
+    <img src="img/fotocastillo.jpg" alt="">
+  </div>
+
+  <div class="thumb card" data-type="foto">
+    <img src="img/castillo4.webp" alt="">
+  </div>
+
+  <div class="thumb card" data-type="foto">
+    <img src="img/castillo5.webp" alt="">
+  </div>
+
+</div>
+ <!-- cierre del GRID -->
+  </section> <!-- cierre del SECTION -->
+
+</main>
+
+<footer class="site-footer">
+  <div class="container footer-grid">
+    <div>
+      <strong>Pirotecnia María José</strong>
+      <p>© <span id="year"></span> • Todos los derechos</p>
+    </div>
+
+    <div>
+      <p>Tel: <a href="tel:+593988104492">+593 9 8810 4492</a></p>
+      <p>Email: <a href="mailto:cristinaabril03@gmail.com">cristinaabril03@gmail.com</a></p>
+      <p>Dirección:
+        <a href="#" target="_blank">
+          San José de Chimbo, Bolívar, Ecuador
+        </a>
+      </p>
+    </div>
+
+  </div>
+</footer>
+
+<script src="app.js"></script>
+<!-- LIGHTBOX -->
+<div id="lightbox">
+  <span id="close">×</span>
+  <img id="lightbox-img" />
+  <video id="lightbox-video" controls></video>
+</div>
+
+</div>
+<script>
+  const galleryItems = document.querySelectorAll(".thumb img, .thumb video");
+  const lightbox = document.getElementById("lightbox");
+  const lightboxImg = document.getElementById("lightbox-img");
+  const lightboxVideo = document.getElementById("lightbox-video");
+  const closeBtn = document.getElementById("close");
+
+  galleryItems.forEach(item => {
+    item.addEventListener("click", () => {
+      // Reset ambos
+      lightboxImg.style.display = "none";
+      lightboxVideo.style.display = "none";
+      lightboxVideo.pause();
+      lightboxVideo.src = "";
+
+      if (item.tagName === "VIDEO") {
+        lightboxVideo.src = item.src;
+        lightboxVideo.style.display = "block";
+      } else {
+        lightboxImg.src = item.src;
+        lightboxImg.style.display = "block";
+      }
+
+      lightbox.classList.add("show");
+    });
+  });
+
+  // Cerrar
+  function closeLightbox() {
+    lightbox.classList.remove("show");
+    lightboxVideo.pause();
+    lightboxVideo.src = "";
+  }
+
+  closeBtn.addEventListener("click", closeLightbox);
+  lightbox.addEventListener("click", (e) => {
+    if (e.target === lightbox) closeLightbox();
+  });
+</script>
+
+</body>
+</html>
+
